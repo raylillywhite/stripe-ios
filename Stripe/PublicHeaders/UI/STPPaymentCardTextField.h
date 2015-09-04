@@ -19,11 +19,11 @@
 @optional
 /**
  *  Called when either the card number, expiration, or CVC changes. At this point, one can call -isValid on the text field to determine, for example, whether or not to enable a button to submit the form. Example:
- 
+
  - (void)paymentCardTextFieldDidChange:(STPPaymentCardTextField *)textField {
       self.paymentButton.enabled = textField.isValid;
  }
- 
+
  *
  *  @param textField the text field that has changed
  */
@@ -160,10 +160,16 @@ __attribute__((deprecated("This protocol is provided only for backwards-compatib
 
 @end
 
+#define PTKTextField UITextField
+
 __attribute__((deprecated("This class is provided only for backwards-compatibility with PaymentKit. You shouldn't use it - use STPPaymentCardTextField instead.")))
 @interface PTKView : STPPaymentCardTextField
 @property(nonatomic, weak, nullable)id<PTKViewDelegate>delegate;
 @property(nonatomic, readonly, nonnull) PTKCard *card;
+@property(nonatomic, readonly, nonnull) PTKTextField *cardNumberField;
+@property(nonatomic, readonly, nonnull) PTKTextField *cardExpiryField;
+@property(nonatomic, readonly, nonnull) PTKTextField *cardCVCField;
+@property(nonatomic, readonly, nonnull) UIImageView *placeholderView;
 @end
 
 #pragma clang diagnostic pop

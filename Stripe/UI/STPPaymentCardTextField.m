@@ -595,6 +595,22 @@ typedef void (^STPNumberShrunkCompletionBlock)(BOOL completed);
     return card;
 }
 
+- (PTKTextField *)cardNumberField {
+    return self.numberField;
+}
+
+- (PTKTextField *)cardExpiryField {
+    return self.expirationField;
+}
+
+- (PTKTextField *)cardCVCField {
+    return self.cvcField;
+}
+
+- (UIImageView *)placeholderView {
+    return self.brandImageView;
+}
+
 @end
 
 #pragma clang diagnostic pop
